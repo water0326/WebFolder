@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trip</title>
+    <script src="https://use.fontawesome.com/releases/v5.2.0/js/all.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Abel&display=swap" rel="stylesheet">
+    <link href="Design.css" rel="stylesheet" type="text/css" />
+
+</head>
+<body>
+    <header style = "text-align: center;">
+        <div class = "logoBox">
+            <img src="resources/mainpage_logo (2).png" alt="" id = "logo">
+        </div>
+        <nav>
+            <div class = "navBox">
+                <ul>
+                    <li onclick="clicked(0)"><p style = "font-weight: lighter; font-family: 'Abel', sans-serif;">Home</p></li>
+                    <li onclick="clicked(1)"><img src="resources/bubble.png" style = "margin: 10px 0;"/></li>
+                    <li onclick="clicked(2)"><i class="fas fa-code fa-2x" style="margin: 15px 0;"></i></li>
+                    <li onclick="clicked(3)"><i class="fas fa-fish fa-2x" style="margin: 15px 0;"></i></li>
+                </ul>
+            </div>
+            <div onclick = "changeTab()" class = "tab" id = "closeTab"><i class="fas fa-times fa-2x" style = "margin: 15px 0;"></i></div>
+        </nav>
+    </header>
+    
+    <section>
+        <div id = "screen">
+            <canvas id = "myCanvas"></canvas>
+        </div>
+        <div id = "modifier">
+            <input type="text" id = "textInput" placeholder="텍스트 입력 │ Text input">
+            <p class = "modifyName brush" id = "brushName">Brush Size(1~10)</p>
+            <input type="number" id = "brushSize" value = "3">
+            <p class = "modifyName line" id = "lineName">Line Size(1~20)</p>
+            <input type="number" id = "mapSize" value = "10">
+            <p class = "modifyName reset">Reset</p>
+            <button onclick = "reset()" id = "resetMap">Re</button>
+        </div>
+        
+    </section>
+
+    <footer>
+        <p>Lee Jeong</p>
+    </footer>
+
+    <script src = "Script.js"></script>
+
+</body>
+</html>

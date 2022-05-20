@@ -1,0 +1,475 @@
+@font-face {
+    font-family: "codeFont";
+    src: url(resources/neodgm_code.woff);
+}
+
+@font-face {
+    font-family: "fishFont_en";
+    src: url(resources/mishmash.ttf);
+}
+
+@font-face {
+    font-family: "fishFont_ko";
+    src: url(resources/Cafe24Ssurround.ttf);
+}
+
+@font-face {
+    font-family: 'YanoljaYacheR';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_two@1.0/YanoljaYacheR.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Cafe24Oneprettynight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_twelve@1.1/Cafe24Oneprettynight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'MaplestoryOTFLight';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@2.1/MaplestoryOTFLight.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* { margin: 0; padding: 0; overflow: hidden; }
+        
+:root {
+    --background: #e4e4e4;
+    --waterColor: #BFC8D7;
+    --shadowColor: rgba(0, 0, 0, 0.3);
+    --selectedColor: #454545;
+    --codeColor: #343434;
+    --aboutColor: #e4e4e4;
+    --bubbleColor: #ec6c54;
+
+    --fullWidth: 200%;
+    --noneWidth: auto;
+    --fullPadding: 200%;
+    --nonePadding: 0%;
+}
+
+body { background-color: var(--background); }
+
+footer { position: absolute; right: 1%; bottom: 1%; z-index: 4; }
+footer > p { font-family: 'Abel', sans-serif; color: white; }
+
+canvas { z-index: 5; }
+
+#screen {
+    z-index: 1;
+}
+
+.modifyName {
+    font-family: 'Abel', sans-serif;
+    position: absolute;
+    font-size: 20px;
+    line-height: 50px;
+    vertical-align: middle;
+    z-index: 6;
+}
+
+.brush {
+    top: 20%;
+    right: 110px;
+}
+
+.line {
+    top: 30%;
+    right: 110px;
+}
+
+.reset {
+    top: 40%;
+    right: 110px;
+}
+
+#modifier {
+    z-index: 5;
+}
+
+#textInput { 
+    position: absolute;
+    bottom: 10%;
+    line-height: 40px;
+    vertical-align: middle;
+    left: 20%;
+    width: 60%;
+    height: 40px;
+    font-size: 20px;
+    z-index: 6; 
+    font-family: 'Abel', sans-serif;
+    border-radius: 50px;
+    text-align: center;
+    border: none;
+}
+
+#brushSize {
+    position: absolute;
+    line-height: 50px;
+    vertical-align: middle;
+    top: 20%;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    z-index: 6;
+    font-family: 'Abel', sans-serif;
+    border-radius: 50px;
+    text-align: center;
+    border: none;
+}
+
+#mapSize {
+    position: absolute;
+    line-height: 50px;
+    vertical-align: middle;
+    top: 30%;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    z-index: 6;
+    font-family: 'Abel', sans-serif;
+    border-radius: 50px;
+    text-align: center;
+    border: none;
+}
+
+button:hover, input:hover {
+    background-color: lightgray;
+}
+
+button:active, input:active {
+    background-color: gray;
+}
+
+#resetMap {
+    position: absolute;
+    line-height: 50px;
+    vertical-align: middle;
+    top: 40%;
+    right: 40px;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    z-index: 6;
+    font-family: 'Abel', sans-serif;
+    border-radius: 50px;
+    text-align: center;
+    border: none;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+input:focus {
+    outline: none;
+}
+
+.logoBox {
+    position: absolute;
+    margin-top: 20px;
+    background-color: white;
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin-left: 20px;
+    border-radius: 60px;
+    z-index: 2;
+    box-shadow: inset 0px 0px 1px 1px var(--shadowColor);
+}
+
+.logoBox img {
+    text-align: center;
+    width: 90%;
+    height: 90%;
+    margin-top: 10px;
+    
+}
+
+.navBox {
+    position: absolute;
+    margin-top: 50px;
+    margin-left: 155px;
+    z-index: 2;
+    float: right;
+}
+
+.navBox li {
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin: 0 15px;
+    background-color: white;
+    border-radius: 60px;
+    display: block;
+    box-shadow: inset 0px 0px 1px 1px var(--shadowColor);
+    float: left;
+    cursor: pointer;
+}
+
+.tab {
+    position: absolute;
+    width: 60px;
+    top: 50px;
+    left: 530px;
+    height: 60px;
+    line-height: 60px;
+    background-color: white;
+    border-radius: 60px;
+    display: block;
+    box-shadow: inset 0px 0px 1px 1px var(--shadowColor);
+    cursor: pointer;
+    z-index: 3;
+}
+
+.bubbleAnimation {
+    position: absolute;
+    background-color: var(--bubbleColor);
+    width: 100%;
+    height: 100%;
+}
+
+.bubbleAnimation::after {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    background-color: var(--background);
+    width: var(--fullWidth);
+    height: var(--noneWidth);
+    padding-bottom: var(--fullPadding);
+    padding-left: var(--nonePadding);
+    border-radius: 100%;
+    animation: bubbleAnimationMove 2s forwards;
+}
+
+@keyframes bubbleAnimationMove {
+    0% {
+        left: -25%;
+        width: 150%;
+        padding-bottom: 150%;
+        bottom: -25%;
+    }
+    100% {
+        left: 50%;
+        width: 0%;
+        padding-bottom: 0%;
+        bottom: 50%;
+    }
+}
+
+.waterAnimation { 
+    position: absolute;
+    background-color: var(--waterColor);
+    width: 100%;
+    height: 100%;
+}
+
+.waterAnimation::after {
+    content: "";
+    position: absolute;
+    bottom: -50%;
+    left: -50%;
+    background-color: var(--background);
+    width: var(--fullWidth);
+    height: var(--noneWidth);
+    padding-bottom: var(--fullPadding);
+    padding-left: var(--nonePadding);
+    border-radius: 43%;
+    animation: rotation 3s ease-in forwards;
+}
+
+.codeAnimation {
+    position: absolute;
+    background-color: var(--codeColor);
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.codeAnimation::after {
+    content: "";
+    position: absolute;
+    width: 110%;
+    height: 110%;
+    background-color: var(--background);
+    top: -5%;
+    left: -5%;
+    animation: move 1.5s ease-in-out forwards;
+    z-index: 1;
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+@keyframes rotation {
+    0% {
+        transform: translateY(0) rotate(0deg);
+    }
+    100% {
+        transform: translateY(-100%) rotate(400deg);
+    }
+}
+
+.selectedButton {
+    animation: selectedColorChange 0.3s forwards;
+}
+
+.unselectedButton {
+    animation: unselectedColorChange 0.3s forwards;
+}
+
+@keyframes selectedColorChange {
+    0% {
+        background-color: white;
+    }
+    100% {
+        background-color: var(--selectedColor);
+    }
+}
+
+@keyframes unselectedColorChange {
+    0% {
+        background-color: var(--selectedColor);
+    }
+    100% {
+        background-color: white;
+    }
+}
+
+.aboutAnimation {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    animation: about 1s forwards;
+}
+
+@keyframes about {
+    100% {
+        background-color: var(--aboutColor);
+    }
+}
+
+.initCloseTab {
+    animation: initCloseTabAnimation 0s forwards;
+}
+
+@keyframes initCloseTabAnimation {
+    0% {
+        left: 170px;
+        transform: rotate(765deg);
+    }
+    100% {
+        left: 170px;
+        transform: rotate(765deg);
+    }
+}
+
+.initNav {
+    animation: initNavAnimation 0s forwards;
+}
+
+@keyframes initNavAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.openTab {
+    animation: closeTabAnimation 1s forwards;
+}
+
+.closeTab {
+    animation: openTabAnimation 1s forwards;
+}
+
+@keyframes closeTabAnimation {
+    0% {
+        left: 170px;
+        transform: rotate(765deg);
+    }
+    100% {
+        left: 530px;
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes openTabAnimation {
+    0% {
+        left: 530px;
+        transform: rotate(0deg);
+    }
+    100% {
+        left: 170px;
+        transform: rotate(765deg);
+    }
+}
+
+.navFadeIn {
+    animation: navFadeInAnimation 0.3s forwards;
+}
+
+.navFadeOut {
+    animation: navFadeOutAnimation 0.3s forwards;
+}
+
+@keyframes navFadeInAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes navFadeOutAnimation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+.enableModifier {
+    animation: enableModifierAnimation 1s forwards;
+    pointer-events: all;
+}
+
+@keyframes enableModifierAnimation {
+    0% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.disableModifier {
+    animation: disableModifierAnimation 1s forwards;
+    pointer-events: none;
+}
+
+@keyframes disableModifierAnimation {
+    0% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
