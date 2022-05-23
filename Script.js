@@ -104,8 +104,8 @@ function clicked(num) {
             }
             else if(num == 2) { // code
                 changePage("#343434", "codeAnimation", "'codeFont'", "white");
-                lineName.innerHTML = "Line Size(1~30)";
-                brushName.innerHTML = "Brush Size(1~20)";
+                lineName.innerHTML = "Line Size(1~20)";
+                brushName.innerHTML = "Brush Size(1~10)";
                 lineSize.value = 10;
                 brushSize.value = 3;
                 
