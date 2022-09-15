@@ -657,7 +657,7 @@ function homeDraw() {
     ctx.fillStyle = "black";
     ctx.globalAlpha = 1;
     ctx.font = "normal " + String(window.innerWidth / 32) + "px 'MaplestoryOTFLight'";
-    ctx.fillText("체험형 웹", window.innerWidth / 2, 50);
+    ctx.fillText("Trip", window.innerWidth / 2, 50);
     ctx.font = "normal " + String(window.innerWidth / 96) + "px 'MaplestoryOTFLight'";
     ctx.fillText("Made By LeeJeong", window.innerWidth / 2, 50 + window.innerWidth / 32);
 }
