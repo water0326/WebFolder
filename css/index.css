@@ -1,16 +1,16 @@
 @font-face {
     font-family: 'font1';
-    src: url(/resources/font/font1.ttf);
+    src: url(../resources/font/font1.ttf);
 }
 
 @font-face {
     font-family: 'font2';
-    src: url(/resources/font/font2.ttf);
+    src: url(../resources/font/font2.ttf);
 }
 
 @font-face {
     font-family: 'font3';
-    src: url(/resources/font/font3.ttf);
+    src: url(../resources/font/font3.ttf);
 }
 
 :root {
