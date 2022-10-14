@@ -1,4 +1,4 @@
-window.onload = function(){
+//window.onload = function(){
     let indexDiv = document.getElementById('index');
     let indexWebName = document.getElementById('index_web_name');
     let indexButton = document.getElementsByClassName('index_button');
@@ -91,5 +91,5 @@ window.onload = function(){
         }
         
     }	
-}
+//}
 
